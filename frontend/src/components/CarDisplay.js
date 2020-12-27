@@ -82,6 +82,21 @@ class CarDisplay extends React.Component {
                   </Button>
                 </div>
                 )}
+                {this.props.isBookingInfo && (
+                  <div>
+                      <Button
+                        style={{width: "auto", heght: "130%", marginTop:"25%"}}
+                        variant="contained"
+                        onClick={() =>
+                          this.props.history.push({
+                            pathname: "/BookingInfo",
+                            state: this.props.data,
+                          })
+                        }>
+                        View Booking
+                      </Button>
+                  </div>
+                )}
               </Grid>
             </Grid>
           </CardContent>

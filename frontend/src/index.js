@@ -5,6 +5,7 @@ import CustomerForm from "./components/CustomerForm";
 import Conformation from "./components/Conformation";
 import SignIn from "./components/SignIn";
 import AdminPage from "./components/AdminPage";
+import {BookingInfo} from "./components/BookingInfo";
 import "./index.css";
 import {
   BrowserRouter as Router,
@@ -20,6 +21,7 @@ const Index = (
       <Switch>
         <Route path="/" exact={true} component={Mainpage} />
         <Route path="/customer" exact={true} component={CustomerForm} />
+        <Route path="/BookingInfo" exact={true} component={BookingInfo} />
         <Route path="/conformation" exact={true} component={Conformation} />
         <Route path="/signIn" exact={true} component={SignIn} />
         <Route path="/AdminPage" exact={true} component={AdminPage} />

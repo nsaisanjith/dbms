@@ -99,7 +99,7 @@ export default class AdminPage extends Component {
         {!this.state.isUnreservedLoading && this.state.reservedCars &&
           (this.state.reservedCars.length ? (
             this.state.reservedCars.map((car) => {
-              return <CarDisplay data={car} hideBookingButton={true}/>;
+              return <CarDisplay data={car} hideBookingButton={true} isBookingInfo={true}/>;
             })
           ) : (
             <h3>No reserved cars available</h3>
@@ -114,7 +114,7 @@ export default class AdminPage extends Component {
         {!this.state.isUnreservedLoading && this.state.unreservedCars &&
           (this.state.unreservedCars.length ? (
             this.state.unreservedCars.map((car) => {
-              return <CarDisplay data={car} hideBookingButton={true}/>;
+              return <CarDisplay data={car} hideBookingButton={true} />;
             })
           ) : (
             <h3>No unreserved cars available</h3>
