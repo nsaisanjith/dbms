@@ -15,9 +15,9 @@ class SignIn extends Component {
       const res = await axios.post("http://localhost:4000/login", data);
       console.log(res);
       if (res.status == 200) {
-        this.props.history.push({
-          pathname: "/AdminPage",
-        });
+        // this.props.history.push({
+        //   pathname: "/AdminPage",
+        // });
       } else {
         alert("incorrect Password or Email ID");
       }

@@ -33,56 +33,56 @@ class CarDisplay extends React.Component {
   render() {
     return (
       <div>
-        <Card style={{ margin: "1%" }}>
+        <Card style={{ margin: "3%" }}>
           <CardContent>
             <Grid container spacing={2}>
-              <Grid item xs={4}>
-                {this.getItem("Car", this.props.data.name)}
+              <Grid container xs={3} style={{ marginLeft: "10" }}>
+                  {
+                    <img
+                      src={
+                        "data:image/png;base64," +
+                        encode(this.props.data.image.data)
+                      }
+                      style={{ width: "150", height: "150" }}
+                    />
+                  }
               </Grid>
-              <Grid item xs={4}>
-                {this.getItem("Company", this.props.data.company)}
+              <Grid container xs={9} style={{ marginLeft: "10" }}>
+                <Grid item xs={5}>
+                  {this.getItem("Car", this.props.data.name)}
+                </Grid>
+                <Grid item xs={4}>
+                  {this.getItem("Company", this.props.data.company)}
+                </Grid>
+                <Grid item xs={3}>
+                  {this.getItem("Type", this.props.data.type)}
+                </Grid>
+                <Grid item xs={3}>
+                  {this.getItem("Fule Type", this.props.data.fuel)}
+                </Grid>
+                <Grid item xs={3}>
+                  {this.getItem("Per Day(Rs)", this.props.data.cost)}
+                </Grid>
+                <Grid item xs={3}>
+                  {}
+                </Grid>
+                {this.props.hideBookingButton || (
+                <div>
+                  <Button
+                    style={{width: "auto", heght: "130%", marginTop:"25%"}}
+                    variant="contained"
+                    color="secondary"
+                    onClick={() =>
+                      this.props.history.push({
+                        pathname: "/customer",
+                        state: this.props.data,
+                      })
+                    }>
+                    Book Car
+                  </Button>
+                </div>
+                )}
               </Grid>
-              <Grid item xs={4} style={{ marginLeft: "10" }}>
-                {
-                  <img
-                    src={
-                      "data:image/png;base64," +
-                      encode(this.props.data.image.data)
-                    }
-                    style={{ width: "150", height: "150" }}
-                  />
-                }
-              </Grid>
-              <Grid item xs={4}>
-                {this.getItem("Type", this.props.data.type)}
-              </Grid>
-              <Grid item xs={4}>
-                {this.getItem("Fule Type", this.props.data.fuel)}
-              </Grid>
-              <Grid item xs={4}>
-                {this.getItem("Per Day(Rs)", this.props.data.cost)}
-              </Grid>
-              <Grid item xs={4}>
-                {}
-              </Grid>
-              <Grid item xs={4}>
-                {}
-              </Grid>
-              <Grid item xs={4}>
-                {}
-              </Grid>
-              <Grid item xs={4}></Grid>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={() =>
-                  this.props.history.push({
-                    pathname: "/customer",
-                    state: this.props.data,
-                  })
-                }>
-                Book Car
-              </Button>
             </Grid>
           </CardContent>
           <CardActions></CardActions>

@@ -4,10 +4,15 @@ import CarDisplay from "./CarDisplay";
 export default class Mainpage extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount(){
     this.getCarInfo();
   }
+
   state = {
     cars: null,
+    loading: true
   };
   getCarInfo = async () => {
     try {
@@ -15,15 +20,20 @@ export default class Mainpage extends Component {
       console.log(data.data);
       this.setState({
         cars: data.data,
+        loading: false
       });
     } catch (e) {
       alert("server is down");
+      this.setState({
+        loading: false
+      });
     }
   };
   render() {
     return (
       <div>
-        {this.state.cars &&
+        { this.state.loading ? (<div class="loader"></div>) : null}
+        {!this.state.loading && this.state.cars &&
           (this.state.cars.length ? (
             this.state.cars.map((car) => {
               return <CarDisplay data={car} />;
